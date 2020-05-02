@@ -6,7 +6,7 @@ public class InsertUpdateDelete {
 
 	public static void main(String[] args) {
 
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicdb?useSSL=false", "user", "password");
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:4306/musicdb?useSSL=false", "user", "password");
 		     Statement statement = conn.createStatement()) {
 			// conn.setAutoCommit(false);
 			statement.execute("INSERT INTO contacts (name, phone, email) VALUES('Joe', 45632, 'joe@anywhere.com')");
@@ -21,7 +21,8 @@ public class InsertUpdateDelete {
 						results.getString("email"));
 			}
 
-			statement.executeUpdate("UPDATE contacts set phone='486666' WHERE name = 'Jane'");
+			// i = number of rows that are edit.
+			int i = statement.executeUpdate("UPDATE contacts set phone='486666' WHERE name = 'Jane'");
 
 			statement.executeUpdate("DELETE FROM contacts WHERE email = 'dog@email.com'");
 
