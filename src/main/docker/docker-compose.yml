@@ -5,7 +5,7 @@ services:
     image: mysql:5.6
     # Port 3306 was already used.
     ports:
-      - "4306:3306"
+      - "3306:3306"
     environment:
       MYSQL_DATABASE: 'musicdb'
       # So you don't have to use root, but you can if you like
